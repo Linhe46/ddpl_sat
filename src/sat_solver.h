@@ -5,14 +5,13 @@
 
 class SAT_SOLVER{
     public:
-        SAT_SOLVER(int, int);
+        SAT_SOLVER();
         ~SAT_SOLVER();
         void addClause(const std::vector<int> &clause);
         void printClause();
         bool solve();
     private:
         int num_val, num_clause;
-        bool checkInput();
         std::vector<std::vector<int>> clauses;
 };
 
