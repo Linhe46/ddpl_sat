@@ -1,0 +1,9 @@
+# ignore input .cnf files
+*.cnf
+#ignore vscode settings
+.vscode
+#ignore files generated while compilation
+*.o
+*.obj
+*.exe
+*.out
