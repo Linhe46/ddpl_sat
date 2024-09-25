@@ -68,10 +68,24 @@ include CMakeFiles/main.dir/progress.make
 # Include the compile flags for this target's objects.
 include CMakeFiles/main.dir/flags.make
 
+CMakeFiles/main.dir/src/cnf.cpp.obj: CMakeFiles/main.dir/flags.make
+CMakeFiles/main.dir/src/cnf.cpp.obj: D:/vscode/vscode_c/vlsi_cad/src/cnf.cpp
+CMakeFiles/main.dir/src/cnf.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\vscode\vscode_c\vlsi_cad\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/cnf.cpp.obj"
+	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/cnf.cpp.obj -MF CMakeFiles\main.dir\src\cnf.cpp.obj.d -o CMakeFiles\main.dir\src\cnf.cpp.obj -c D:\vscode\vscode_c\vlsi_cad\src\cnf.cpp
+
+CMakeFiles/main.dir/src/cnf.cpp.i: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/cnf.cpp.i"
+	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\vscode\vscode_c\vlsi_cad\src\cnf.cpp > CMakeFiles\main.dir\src\cnf.cpp.i
+
+CMakeFiles/main.dir/src/cnf.cpp.s: cmake_force
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/cnf.cpp.s"
+	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\vscode\vscode_c\vlsi_cad\src\cnf.cpp -o CMakeFiles\main.dir\src\cnf.cpp.s
+
 CMakeFiles/main.dir/src/read_file.cpp.obj: CMakeFiles/main.dir/flags.make
 CMakeFiles/main.dir/src/read_file.cpp.obj: D:/vscode/vscode_c/vlsi_cad/src/read_file.cpp
 CMakeFiles/main.dir/src/read_file.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\vscode\vscode_c\vlsi_cad\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building CXX object CMakeFiles/main.dir/src/read_file.cpp.obj"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\vscode\vscode_c\vlsi_cad\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/read_file.cpp.obj"
 	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/read_file.cpp.obj -MF CMakeFiles\main.dir\src\read_file.cpp.obj.d -o CMakeFiles\main.dir\src\read_file.cpp.obj -c D:\vscode\vscode_c\vlsi_cad\src\read_file.cpp
 
 CMakeFiles/main.dir/src/read_file.cpp.i: cmake_force
@@ -82,30 +96,16 @@ CMakeFiles/main.dir/src/read_file.cpp.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/read_file.cpp.s"
 	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\vscode\vscode_c\vlsi_cad\src\read_file.cpp -o CMakeFiles\main.dir\src\read_file.cpp.s
 
-CMakeFiles/main.dir/src/sat_solver.cpp.obj: CMakeFiles/main.dir/flags.make
-CMakeFiles/main.dir/src/sat_solver.cpp.obj: D:/vscode/vscode_c/vlsi_cad/src/sat_solver.cpp
-CMakeFiles/main.dir/src/sat_solver.cpp.obj: CMakeFiles/main.dir/compiler_depend.ts
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=D:\vscode\vscode_c\vlsi_cad\build\CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building CXX object CMakeFiles/main.dir/src/sat_solver.cpp.obj"
-	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -MD -MT CMakeFiles/main.dir/src/sat_solver.cpp.obj -MF CMakeFiles\main.dir\src\sat_solver.cpp.obj.d -o CMakeFiles\main.dir\src\sat_solver.cpp.obj -c D:\vscode\vscode_c\vlsi_cad\src\sat_solver.cpp
-
-CMakeFiles/main.dir/src/sat_solver.cpp.i: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing CXX source to CMakeFiles/main.dir/src/sat_solver.cpp.i"
-	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -E D:\vscode\vscode_c\vlsi_cad\src\sat_solver.cpp > CMakeFiles\main.dir\src\sat_solver.cpp.i
-
-CMakeFiles/main.dir/src/sat_solver.cpp.s: cmake_force
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling CXX source to assembly CMakeFiles/main.dir/src/sat_solver.cpp.s"
-	D:\vscode\mingw64\bin\g++.exe $(CXX_DEFINES) $(CXX_INCLUDES) $(CXX_FLAGS) -S D:\vscode\vscode_c\vlsi_cad\src\sat_solver.cpp -o CMakeFiles\main.dir\src\sat_solver.cpp.s
-
 # Object files for target main
 main_OBJECTS = \
-"CMakeFiles/main.dir/src/read_file.cpp.obj" \
-"CMakeFiles/main.dir/src/sat_solver.cpp.obj"
+"CMakeFiles/main.dir/src/cnf.cpp.obj" \
+"CMakeFiles/main.dir/src/read_file.cpp.obj"
 
 # External object files for target main
 main_EXTERNAL_OBJECTS =
 
+main.exe: CMakeFiles/main.dir/src/cnf.cpp.obj
 main.exe: CMakeFiles/main.dir/src/read_file.cpp.obj
-main.exe: CMakeFiles/main.dir/src/sat_solver.cpp.obj
 main.exe: CMakeFiles/main.dir/build.make
 main.exe: CMakeFiles/main.dir/linkLibs.rsp
 main.exe: CMakeFiles/main.dir/objects1.rsp

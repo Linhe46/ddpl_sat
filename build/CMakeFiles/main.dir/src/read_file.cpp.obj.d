@@ -152,7 +152,7 @@ CMakeFiles/main.dir/src/read_file.cpp.obj: \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/quoted_string.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/sstream \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/sstream.tcc \
- D:\vscode\vscode_c\vlsi_cad\src\sat_solver.h \
+ D:\vscode\vscode_c\vlsi_cad\src\cnf.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/vector \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_uninitialized.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_vector.h \

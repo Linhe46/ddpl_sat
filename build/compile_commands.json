@@ -1,14 +1,14 @@
 [
 {
   "directory": "D:/vscode/vscode_c/vlsi_cad/build",
-  "command": "D:\\vscode\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\read_file.cpp.obj -c D:\\vscode\\vscode_c\\vlsi_cad\\src\\read_file.cpp",
-  "file": "D:/vscode/vscode_c/vlsi_cad/src/read_file.cpp",
-  "output": "CMakeFiles/main.dir/src/read_file.cpp.obj"
+  "command": "D:\\vscode\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\cnf.cpp.obj -c D:\\vscode\\vscode_c\\vlsi_cad\\src\\cnf.cpp",
+  "file": "D:/vscode/vscode_c/vlsi_cad/src/cnf.cpp",
+  "output": "CMakeFiles/main.dir/src/cnf.cpp.obj"
 },
 {
   "directory": "D:/vscode/vscode_c/vlsi_cad/build",
-  "command": "D:\\vscode\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\sat_solver.cpp.obj -c D:\\vscode\\vscode_c\\vlsi_cad\\src\\sat_solver.cpp",
-  "file": "D:/vscode/vscode_c/vlsi_cad/src/sat_solver.cpp",
-  "output": "CMakeFiles/main.dir/src/sat_solver.cpp.obj"
+  "command": "D:\\vscode\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\read_file.cpp.obj -c D:\\vscode\\vscode_c\\vlsi_cad\\src\\read_file.cpp",
+  "file": "D:/vscode/vscode_c/vlsi_cad/src/read_file.cpp",
+  "output": "CMakeFiles/main.dir/src/read_file.cpp.obj"
 }
 ]

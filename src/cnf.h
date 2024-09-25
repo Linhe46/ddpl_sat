@@ -1,16 +1,15 @@
-#ifndef SAT_SOLVER_H
-#define SAT_SOLVER_H
+#ifndef CNF_H
+#define CNF_H
 
 #include <vector>
 
-class SAT_SOLVER{
+class CNF{
     public:
-        SAT_SOLVER();
-        ~SAT_SOLVER();
+        CNF();
+        ~CNF();
         void addClause(const std::vector<int> &clause);
         void setNum(int num_val, int num_clause);
         void printClause();
-        bool solve();
     private:
         int num_val, num_clause;
         std::vector<std::vector<int>> clauses;

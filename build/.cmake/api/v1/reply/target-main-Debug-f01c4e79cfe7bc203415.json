@@ -100,13 +100,13 @@
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/read_file.cpp",
+			"path" : "src/cnf.cpp",
 			"sourceGroupIndex" : 0
 		},
 		{
 			"backtrace" : 1,
 			"compileGroupIndex" : 0,
-			"path" : "src/sat_solver.cpp",
+			"path" : "src/read_file.cpp",
 			"sourceGroupIndex" : 0
 		}
 	],

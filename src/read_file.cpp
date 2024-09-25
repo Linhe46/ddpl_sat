@@ -3,7 +3,7 @@
 #include <cassert>
 #include <iomanip>
 #include <cctype>
-#include "sat_solver.h"
+#include "cnf.h"
 
 std::string read_file(const std::string& path){
     std::ifstream file(path);
@@ -15,7 +15,7 @@ std::string read_file(const std::string& path){
         s += x;
     return s;
 }
-void load_solver(SAT_SOLVER* solver, const std::string& input){
+void getCNF(CNF* cnf_form, const std::string& input){
     int id = 0;
     int end = input.size();
     // parse head lines and get num_val, num_clause
@@ -59,7 +59,7 @@ void load_solver(SAT_SOLVER* solver, const std::string& input){
             break;
         }
     }
-    solver->setNum(std::stoi(num_val), std::stoi(num_clause));
+    cnf_form->setNum(std::stoi(num_val), std::stoi(num_clause));
     //std::cout << num_val << ' ' << num_clause << std::endl;
     //std::cout << "now id is at char:" << input[id] << '\n';
 
@@ -69,7 +69,7 @@ void load_solver(SAT_SOLVER* solver, const std::string& input){
     while(id<end){
         char x = input[id];
         if(x=='0' && val==""){
-            solver->addClause(clause);
+            cnf_form->addClause(clause);
             /*
             for(auto x:clause)
                 std::cout << x << ',';
@@ -91,13 +91,13 @@ int main(int argc, char* args[]){
     std::string cnf_path = args[1];
     auto input = read_file(cnf_path);
     //std::cout << input << '\n';
-    SAT_SOLVER *solver = new SAT_SOLVER();
+    CNF* cnf_form = new CNF();
     try{
-        load_solver(solver, input);
+        getCNF(cnf_form, input);
     }
     catch(std::runtime_error&){
         std::cout << "Malformed .cnf file!" << std::endl;
     }
-    solver->printClause();
+    cnf_form->printClause();
     return 0;
 }

@@ -128,6 +128,30 @@ main/fast:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/build
 .PHONY : main/fast
 
+src/cnf.obj: src/cnf.cpp.obj
+.PHONY : src/cnf.obj
+
+# target to build an object file
+src/cnf.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/cnf.cpp.obj
+.PHONY : src/cnf.cpp.obj
+
+src/cnf.i: src/cnf.cpp.i
+.PHONY : src/cnf.i
+
+# target to preprocess a source file
+src/cnf.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/cnf.cpp.i
+.PHONY : src/cnf.cpp.i
+
+src/cnf.s: src/cnf.cpp.s
+.PHONY : src/cnf.s
+
+# target to generate assembly for a file
+src/cnf.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/cnf.cpp.s
+.PHONY : src/cnf.cpp.s
+
 src/read_file.obj: src/read_file.cpp.obj
 .PHONY : src/read_file.obj
 
@@ -152,30 +176,6 @@ src/read_file.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/read_file.cpp.s
 .PHONY : src/read_file.cpp.s
 
-src/sat_solver.obj: src/sat_solver.cpp.obj
-.PHONY : src/sat_solver.obj
-
-# target to build an object file
-src/sat_solver.cpp.obj:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/sat_solver.cpp.obj
-.PHONY : src/sat_solver.cpp.obj
-
-src/sat_solver.i: src/sat_solver.cpp.i
-.PHONY : src/sat_solver.i
-
-# target to preprocess a source file
-src/sat_solver.cpp.i:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/sat_solver.cpp.i
-.PHONY : src/sat_solver.cpp.i
-
-src/sat_solver.s: src/sat_solver.cpp.s
-.PHONY : src/sat_solver.s
-
-# target to generate assembly for a file
-src/sat_solver.cpp.s:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/sat_solver.cpp.s
-.PHONY : src/sat_solver.cpp.s
-
 # Help Target
 help:
 	@echo The following are some of the valid targets for this Makefile:
@@ -185,12 +185,12 @@ help:
 	@echo ... edit_cache
 	@echo ... rebuild_cache
 	@echo ... main
+	@echo ... src/cnf.obj
+	@echo ... src/cnf.i
+	@echo ... src/cnf.s
 	@echo ... src/read_file.obj
 	@echo ... src/read_file.i
 	@echo ... src/read_file.s
-	@echo ... src/sat_solver.obj
-	@echo ... src/sat_solver.i
-	@echo ... src/sat_solver.s
 .PHONY : help
 
 
