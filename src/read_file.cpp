@@ -18,6 +18,7 @@ std::string read_file(const std::string& path){
 void load_solver(SAT_SOLVER* solver, const std::string& input){
     int id = 0;
     int end = input.size();
+    // parse head lines and get num_val, num_clause
     bool detect_head_line = false;
     while(id<end){
         char x = input[id];
@@ -41,7 +42,7 @@ void load_solver(SAT_SOLVER* solver, const std::string& input){
     bool get_num_val = false;
     while(id<end){
         char x = input[id];
-        if(x>'0'&& x<='9'){
+        if(isdigit(x)){
             //std::cout << 'x' << std::endl;
             get_num_val ? num_clause += x : num_val += x;
             id += 1;
@@ -58,13 +59,16 @@ void load_solver(SAT_SOLVER* solver, const std::string& input){
             break;
         }
     }
+    solver->setNum(std::stoi(num_val), std::stoi(num_clause));
     //std::cout << num_val << ' ' << num_clause << std::endl;
     //std::cout << "now id is at char:" << input[id] << '\n';
+
+    // load clauses
     std::vector<int> clause;
     std::string val;
     while(id<end){
         char x = input[id];
-        if(x=='0'){
+        if(x=='0' && val==""){
             solver->addClause(clause);
             /*
             for(auto x:clause)

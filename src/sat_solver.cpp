@@ -6,6 +6,10 @@ SAT_SOLVER::~SAT_SOLVER(){}
 void SAT_SOLVER::addClause(const std::vector<int>& clause){
     clauses.push_back(clause);
 }
+void SAT_SOLVER::setNum(int num_val, int num_clause){
+    this->num_val = num_val;
+    this->num_clause = num_clause;
+}
 void SAT_SOLVER::printClause(){
     for(const auto& clause:clauses){
         for(auto i: clause)
@@ -13,6 +17,7 @@ void SAT_SOLVER::printClause(){
         std::cout << '\n';
     }
 }
+
 bool SAT_SOLVER::solve(){
     // solve a sat problem
     return 1;

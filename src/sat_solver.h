@@ -8,6 +8,7 @@ class SAT_SOLVER{
         SAT_SOLVER();
         ~SAT_SOLVER();
         void addClause(const std::vector<int> &clause);
+        void setNum(int num_val, int num_clause);
         void printClause();
         bool solve();
     private:
