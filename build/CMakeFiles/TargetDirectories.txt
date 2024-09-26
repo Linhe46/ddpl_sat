@@ -1,3 +1,0 @@
-D:/vscode/vscode_c/vlsi_cad/build/CMakeFiles/main.dir
-D:/vscode/vscode_c/vlsi_cad/build/CMakeFiles/edit_cache.dir
-D:/vscode/vscode_c/vlsi_cad/build/CMakeFiles/rebuild_cache.dir
