@@ -152,6 +152,30 @@ src/cnf.cpp.s:
 	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/cnf.cpp.s
 .PHONY : src/cnf.cpp.s
 
+src/dpll.obj: src/dpll.cpp.obj
+.PHONY : src/dpll.obj
+
+# target to build an object file
+src/dpll.cpp.obj:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/dpll.cpp.obj
+.PHONY : src/dpll.cpp.obj
+
+src/dpll.i: src/dpll.cpp.i
+.PHONY : src/dpll.i
+
+# target to preprocess a source file
+src/dpll.cpp.i:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/dpll.cpp.i
+.PHONY : src/dpll.cpp.i
+
+src/dpll.s: src/dpll.cpp.s
+.PHONY : src/dpll.s
+
+# target to generate assembly for a file
+src/dpll.cpp.s:
+	$(MAKE) $(MAKESILENT) -f CMakeFiles\main.dir\build.make CMakeFiles/main.dir/src/dpll.cpp.s
+.PHONY : src/dpll.cpp.s
+
 src/read_file.obj: src/read_file.cpp.obj
 .PHONY : src/read_file.obj
 
@@ -188,6 +212,9 @@ help:
 	@echo ... src/cnf.obj
 	@echo ... src/cnf.i
 	@echo ... src/cnf.s
+	@echo ... src/dpll.obj
+	@echo ... src/dpll.i
+	@echo ... src/dpll.s
 	@echo ... src/read_file.obj
 	@echo ... src/read_file.i
 	@echo ... src/read_file.s

@@ -98,6 +98,13 @@ int main(int argc, char* args[]){
     catch(std::runtime_error&){
         std::cout << "Malformed .cnf file!" << std::endl;
     }
-    cnf_form->printClause();
+    //cnf_form->printClause();
+    //std::cout<<(BCP(1, 0, *cnf_form) ? "true" : "false")<<std::endl;
+    //std::cout<<(BCP(2, 1, *cnf_form) ? "true" : "false")<<std::endl;
+    //std::cout<<(BCP(3, 1, *cnf_form) ? "true" : "false")<<std::endl;
+    bool sat = DPLL(*cnf_form);
+    std::cout << (sat ? "SAT" : "UNSAT") << std::endl;
+    if(sat)
+        cnf_form->printSolution();
     return 0;
 }

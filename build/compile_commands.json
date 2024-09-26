@@ -7,6 +7,12 @@
 },
 {
   "directory": "D:/vscode/vscode_c/vlsi_cad/build",
+  "command": "D:\\vscode\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\dpll.cpp.obj -c D:\\vscode\\vscode_c\\vlsi_cad\\src\\dpll.cpp",
+  "file": "D:/vscode/vscode_c/vlsi_cad/src/dpll.cpp",
+  "output": "CMakeFiles/main.dir/src/dpll.cpp.obj"
+},
+{
+  "directory": "D:/vscode/vscode_c/vlsi_cad/build",
   "command": "D:\\vscode\\mingw64\\bin\\g++.exe   -g -std=gnu++17 -o CMakeFiles\\main.dir\\src\\read_file.cpp.obj -c D:\\vscode\\vscode_c\\vlsi_cad\\src\\read_file.cpp",
   "file": "D:/vscode/vscode_c/vlsi_cad/src/read_file.cpp",
   "output": "CMakeFiles/main.dir/src/read_file.cpp.obj"

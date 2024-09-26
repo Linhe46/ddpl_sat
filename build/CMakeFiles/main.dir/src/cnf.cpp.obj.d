@@ -61,6 +61,38 @@ CMakeFiles/main.dir/src/cnf.cpp.obj: \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uses_allocator_args.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/tuple \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/list \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_list.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/allocated_ptr.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/aligned_buffer.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/list.tcc \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/unordered_map \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/unordered_map.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/hashtable_policy.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/enable_special_members.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/node_handle.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/erase_if.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/algorithm \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_algo.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/algorithmfwd.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_heap.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/uniform_int_dist.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/stl_tempbuf.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib \
+ D:/vscode/mingw64/x86_64-w64-mingw32/include/stdlib.h \
+ D:/vscode/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
+ D:/vscode/mingw64/x86_64-w64-mingw32/include/limits.h \
+ D:/vscode/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
+ D:/vscode/mingw64/x86_64-w64-mingw32/include/malloc.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
+ D:/vscode/mingw64/x86_64-w64-mingw32/include/errno.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/glue_algorithm_defs.h \
+ D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/pstl/execution_defs.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/iostream \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ostream \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ios \
@@ -70,7 +102,6 @@ CMakeFiles/main.dir/src/cnf.cpp.obj: \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cwchar \
  D:/vscode/mingw64/x86_64-w64-mingw32/include/wchar.h \
  D:/vscode/mingw64/x86_64-w64-mingw32/include/corecrt_stdio_config.h \
- D:/vscode/mingw64/x86_64-w64-mingw32/include/corecrt_wstdlib.h \
  D:/vscode/mingw64/x86_64-w64-mingw32/include/_mingw_off_t.h \
  D:/vscode/mingw64/x86_64-w64-mingw32/include/_mingw_stat64.h \
  D:/vscode/mingw64/x86_64-w64-mingw32/include/swprintf.inl \
@@ -93,17 +124,6 @@ CMakeFiles/main.dir/src/cnf.cpp.obj: \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/ext/atomicity.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/gthr-default.h \
- D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/stdlib.h \
- D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/cstdlib \
- D:/vscode/mingw64/x86_64-w64-mingw32/include/stdlib.h \
- D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/limits.h \
- D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/syslimits.h \
- D:/vscode/mingw64/x86_64-w64-mingw32/include/limits.h \
- D:/vscode/mingw64/x86_64-w64-mingw32/include/sec_api/stdlib_s.h \
- D:/vscode/mingw64/x86_64-w64-mingw32/include/malloc.h \
- D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/mm_malloc.h \
- D:/vscode/mingw64/x86_64-w64-mingw32/include/errno.h \
- D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/bits/std_abs.h \
  D:/vscode/mingw64/x86_64-w64-mingw32/include/sys/timeb.h \
  D:/vscode/mingw64/x86_64-w64-mingw32/include/sec_api/sys/timeb_s.h \
  D:/vscode/mingw64/lib/gcc/x86_64-w64-mingw32/13.1.0/include/c++/x86_64-w64-mingw32/bits/atomic_word.h \

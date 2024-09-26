@@ -1,6 +1,8 @@
 file(REMOVE_RECURSE
   "CMakeFiles/main.dir/src/cnf.cpp.obj"
   "CMakeFiles/main.dir/src/cnf.cpp.obj.d"
+  "CMakeFiles/main.dir/src/dpll.cpp.obj"
+  "CMakeFiles/main.dir/src/dpll.cpp.obj.d"
   "CMakeFiles/main.dir/src/read_file.cpp.obj"
   "CMakeFiles/main.dir/src/read_file.cpp.obj.d"
   "libmain.dll.a"

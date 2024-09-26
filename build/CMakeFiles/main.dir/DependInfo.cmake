@@ -9,6 +9,7 @@ set(CMAKE_DEPENDS_LANGUAGES
 # The set of dependency files which are needed:
 set(CMAKE_DEPENDS_DEPENDENCY_FILES
   "D:/vscode/vscode_c/vlsi_cad/src/cnf.cpp" "CMakeFiles/main.dir/src/cnf.cpp.obj" "gcc" "CMakeFiles/main.dir/src/cnf.cpp.obj.d"
+  "D:/vscode/vscode_c/vlsi_cad/src/dpll.cpp" "CMakeFiles/main.dir/src/dpll.cpp.obj" "gcc" "CMakeFiles/main.dir/src/dpll.cpp.obj.d"
   "D:/vscode/vscode_c/vlsi_cad/src/read_file.cpp" "CMakeFiles/main.dir/src/read_file.cpp.obj" "gcc" "CMakeFiles/main.dir/src/read_file.cpp.obj.d"
   )
 
