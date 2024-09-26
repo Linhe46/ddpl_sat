@@ -67,7 +67,8 @@ bool DPLL(CNF& cnf_form){
             return false;
         }
     }
-    return false;
+    //No literals to be assigned, thus SAT
+    return true;
 }
 
 bool BCP(int name, bool val, CNF& cnf_form){

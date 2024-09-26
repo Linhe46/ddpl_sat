@@ -97,6 +97,7 @@ int main(int argc, char* args[]){
     }
     catch(std::runtime_error&){
         std::cout << "Malformed .cnf file!" << std::endl;
+        return 1;
     }
     //cnf_form->printClause();
     //std::cout<<(BCP(1, 0, *cnf_form) ? "true" : "false")<<std::endl;
