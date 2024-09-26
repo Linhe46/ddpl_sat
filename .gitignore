@@ -7,3 +7,5 @@
 *.obj
 *.exe
 *.out
+#ignore build files
+/build/
