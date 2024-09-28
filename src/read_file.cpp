@@ -3,10 +3,12 @@
 #include <cassert>
 #include <iomanip>
 #include <cctype>
+#include <set>
 #include "cnf.h"
 
 std::string read_file(const std::string& path){
     std::ifstream file(path);
+    // if file not existed, exit with code 1
     if(!file.is_open())
         std::exit(1);
     std::string s;
@@ -18,85 +20,123 @@ std::string read_file(const std::string& path){
 void getCNF(CNF* cnf_form, const std::string& input){
     int id = 0;
     int end = input.size();
+
     // parse head lines and get num_val, num_clause
     bool detect_head_line = false;
-    while(id<end){
-        char x = input[id];
-        if(x=='p'){
-            if(end-id>=5 && input.substr(id,6)=="p cnf "){
-                detect_head_line = true;
-                id += 6;
-                break;
-            }
-            else
-                throw std::runtime_error("No head line p cnf the .cnf file!");
-        }
-        else
-            id++;
-    }
-    if(!detect_head_line)
-        throw std::runtime_error("No head line in the file!");
-    // detect num_val and num_clause
-    std::string num_val = "";
-    std::string num_clause = "";
-    bool get_num_val = false;
-    while(id<end){
-        char x = input[id];
-        if(isdigit(x)){
-            //std::cout << 'x' << std::endl;
-            get_num_val ? num_clause += x : num_val += x;
-            id += 1;
-        }
-            else if (x == ' ')
-            {
-                if (num_val != "")
-                    get_num_val = true;
-                id += 1;
-                continue;
-        }
-        else if(x=='\n'){
-            id += 1;
-            break;
-        }
-    }
-    cnf_form->setNum(std::stoi(num_val), std::stoi(num_clause));
-    //std::cout << num_val << ' ' << num_clause << std::endl;
-    //std::cout << "now id is at char:" << input[id] << '\n';
+    std::string num_val, num_clause;
 
     // load clauses
     std::vector<int> clause;
     std::string val;
+
+    // check the variables and clauses count
+    std::set<int> all_val;
+    int count_clause=0;
+
     while(id<end){
         char x = input[id];
-        if(x=='0' && val==""){
-            cnf_form->addClause(clause);
-            /*
-            for(auto x:clause)
-                std::cout << x << ',';
-            std::cout << '\n';
-            */
-            clause.clear(); //clear clause and read another clause
+        // c starts a comment line
+        if(x=='c'){
+            id++;
+            if(id==end)
+                throw std::runtime_error("Empty cnf form!");
+            else if(input[id]==' '){
+                id++;
+                while(id<end&&input[id]!='\n')
+                    id++;
+                if(id<end && input[id]=='\n')
+                    id++;
+            }
+            else
+                throw std::runtime_error("Illegal text line!");
         }
-        else if(isdigit(x)||x=='-')
-            val += x;
-        else if (x == ' '){
-            clause.push_back(std::stoi(val));
-            val = ""; //clear val and read next val name
+        // p cnf starts a head line
+        else if(x=='p'&&!detect_head_line){
+            if(end-id>=4 && input.substr(id,5)=="p cnf"){
+                detect_head_line = true;
+                id += 5;
+                bool get_num_val = false;
+                if(id==end)
+                    throw std::runtime_error("Malformed header line!");
+                else if(input[id]==' '){
+                    id++;
+                    while(id<end){
+                        char _ = input[id];
+                        if(isdigit(_)){
+                            get_num_val ? num_clause += _ : num_val += _;
+                            id += 1;
+                        }
+                        else if(_==' '&&!get_num_val){
+                            get_num_val = true;
+                            id += 1;
+                        }
+                        else if(_=='\n'){
+                            id += 1;
+                            break;
+                        }
+                        else
+                            throw std::runtime_error("Malformed header line!");
+                    }
+                    try{
+                        cnf_form->setNum(std::stoi(num_val), std::stoi(num_clause));
+                    }
+                    catch(const std::invalid_argument&){
+                        throw std::runtime_error("Malformed header line");
+                    }
+                }
+            }
+            else
+                throw std::runtime_error("Illegal text line!");
         }
-        id += 1;
+        else {
+            if(x=='0' && val==""){
+                cnf_form->addClause(clause);
+                std::transform(clause.begin(), clause.end(), clause.begin(), [](int n)
+                               { return std::abs(n); });// only count once for pos and neg literal
+                all_val.insert(clause.begin(), clause.end());
+                count_clause += 1;
+                clause.clear(); // clear clause and read another clause
+            }
+            else if(isdigit(x)||x=='-')
+                val += x;
+            else if (x == ' '){
+                try{
+                    clause.push_back(std::stoi(val));
+                }
+                catch(const std::invalid_argument&){
+                    throw std::runtime_error("Malformed header line!");
+                }
+                val = ""; // clear val and read next val name
+            }
+            id += 1;
+        }
     }
+
+    if(detect_head_line){
+        if(std::stoi(num_val)<all_val.size())// real #val must <= num_val
+            throw std::runtime_error("Number of variables not match the header line!");
+        if(std::stoi(num_clause)!=count_clause)
+            throw std::runtime_error("Number of clauses not match the header line!");
+    }
+
+    if(count_clause==0||all_val.size()==0)
+        throw std::runtime_error("Empty cnf form!");
 }
 int main(int argc, char* args[]){
-    assert(argc == 2);
+    //assert(argc == 2);
+    if(argc!=2){
+        std::cerr << "Usage: ./" << args[0] << " <cnf_file_path>" << std::endl;
+        return 1;
+    }
     std::string cnf_path = args[1];
     auto input = read_file(cnf_path);
-    //std::cout << input << '\n';
+    // std::cout << input << '\n';
     CNF* cnf_form = new CNF();
     try{
         getCNF(cnf_form, input);
     }
-    catch(std::runtime_error&){
-        std::cout << "Malformed .cnf file!" << std::endl;
+    catch(std::runtime_error&e){
+        std::cout << e.what() << std::endl;
         return 1;
     }
     //cnf_form->printClause();

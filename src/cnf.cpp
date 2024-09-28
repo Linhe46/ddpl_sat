@@ -109,6 +109,7 @@ bool BCP(int name, bool val, CNF& cnf_form){
 
 void CNF::printSolution(){
     for (int i = 1; i <= num_val;i++){
-        std::cout << i << ": " << std::boolalpha << solution[i] << '\n';
+        //std::cout << i << ": " << std::boolalpha << solution[i] << '\n';
+        std::cout << (solution[i] ? "" : "-") << i << ' ';
     }
 }
