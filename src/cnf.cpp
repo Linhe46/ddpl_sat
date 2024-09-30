@@ -44,7 +44,7 @@ bool DPLL(CNF& cnf_form){
             if(!BCP(name, val , cnf_form))
                 return false;
     }
-    //Assignment BCP
+    //Assignment
     for (int i = 1; i <= cnf_form.num_val;i++){
         if(!cnf_form.assigned[i]){
             cnf_form.assigned[i] = true;
@@ -86,7 +86,7 @@ bool BCP(int name, bool val, CNF& cnf_form){
                 else{// get a 0, delete the literal
                     list_it = clause_it->erase(list_it);
                     if(clause_it->size()==0)
-                        state = -1;
+                        return false;
                 }
             }
             else
@@ -100,8 +100,8 @@ bool BCP(int name, bool val, CNF& cnf_form){
         case 0:
             clause_it++;
             break;
-        case -1:
-            return false;
+        /*case -1:
+            return false;*/
         }
     }
     return true;

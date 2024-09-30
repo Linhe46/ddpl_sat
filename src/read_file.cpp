@@ -9,8 +9,10 @@
 std::string read_file(const std::string& path){
     std::ifstream file(path);
     // if file not existed, exit with code 1
-    if(!file.is_open())
+    if(!file.is_open()){
+        std::cout<<"Path: "<<path<<" not exist!"<<std::endl;
         std::exit(1);
+    }
     std::string s;
     char x;
     while(file.get(x))
