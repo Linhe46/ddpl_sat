@@ -25,6 +25,7 @@ void getCNF(CNF* cnf_form, const std::string& input){
 
     // parse head lines and get num_val, num_clause
     bool detect_head_line = false;
+    bool end_head_line = false; // if a clause is received, stop detecting header line
     std::string num_val, num_clause;
 
     // load clauses
@@ -32,9 +33,10 @@ void getCNF(CNF* cnf_form, const std::string& input){
     std::string val;
 
     // check the variables and clauses count
-    std::set<int> all_val;
-    int count_clause=0;
+    int count_clause = 0;
+    int count_val = 0;
 
+    // parse every char
     while(id<end){
         char x = input[id];
         // c starts a comment line
@@ -44,7 +46,7 @@ void getCNF(CNF* cnf_form, const std::string& input){
                 throw std::runtime_error("Empty cnf form!");
             else if(input[id]==' '){
                 id++;
-                while(id<end&&input[id]!='\n')
+                while(id<end && input[id]!='\n')
                     id++;
                 if(id<end && input[id]=='\n')
                     id++;
@@ -52,9 +54,9 @@ void getCNF(CNF* cnf_form, const std::string& input){
             else
                 throw std::runtime_error("Illegal text line!");
         }
-        // p cnf starts a head line
-        else if(x=='p'&&!detect_head_line){
-            if(end-id>=4 && input.substr(id,5)=="p cnf"){
+        // p cnf starts a header line
+        else if(!end_head_line && x=='p' && !detect_head_line){
+            if(end-id>4 && input.substr(id,5)=="p cnf"){
                 detect_head_line = true;
                 id += 5;
                 bool get_num_val = false;
@@ -76,63 +78,89 @@ void getCNF(CNF* cnf_form, const std::string& input){
                             id += 1;
                             break;
                         }
+                        else if(_==' ')
+                            id += 1;
                         else
                             throw std::runtime_error("Malformed header line!");
                     }
-                    try{
+                }
+                try{
                         cnf_form->setNum(std::stoi(num_val), std::stoi(num_clause));
-                    }
-                    catch(const std::invalid_argument&){
-                        throw std::runtime_error("Malformed header line");
-                    }
+                }
+                catch(const std::invalid_argument&){
+                    throw std::runtime_error("Malformed header line");
                 }
             }
             else
-                throw std::runtime_error("Illegal text line!");
+                throw std::runtime_error("Illegal line detected!");
         }
-        else {
-            if(x=='0' && val==""){
-                cnf_form->addClause(clause);
-                std::transform(clause.begin(), clause.end(), clause.begin(), [](int n)
-                               { return std::abs(n); });// only count once for pos and neg literal
-                all_val.insert(clause.begin(), clause.end());
-                count_clause += 1;
-                clause.clear(); // clear clause and read another clause
-            }
-            else if(isdigit(x)||x=='-')
-                val += x;
-            else if (x == ' '){
-                try{
-                    clause.push_back(std::stoi(val));
+        // a number(including a minus sign) starts a clause
+        else if(isdigit(x)|| x=='-'){
+            end_head_line = true;
+            bool end_clause = false;
+            while(!end_clause){
+                x = input[id];
+                // end of a clause
+                if(x=='0' && val==""){
+                    end_clause = true;
+                    cnf_form->addClause(clause);
+                    count_clause += 1;
+                    // clear clause and read another clause
+                    clause.clear(); 
                 }
-                catch(const std::invalid_argument&){
-                    throw std::runtime_error("Malformed header line!");
+                // parse a literal
+                else if(isdigit(x)||x=='-')
+                    val += x;
+                // end of a literal
+                else if(x== ' ' && val!=""){
+                    try{
+                        int val_num = std::stoi(val);
+                        clause.push_back(val_num);
+                        count_val = std::max(count_val, val_num);// select the max val as #variable
+                    }catch (const std::invalid_argument &){
+                        throw std::runtime_error("Malformed clause line!");
+                    }
+                    val = ""; // clear val and read next val name
                 }
-                val = ""; // clear val and read next val name
+                else if(x==' ' || x=='\n'){
+                    // neglect redundant space and newline(if existed)
+                }
+                else{
+                    throw std::runtime_error("Malformed clause line!");
+                }
+                id += 1;
             }
+        }
+        // neglect empty line
+        else if(x==' '||x=='\n')
             id += 1;
-        }
+        else
+            throw std::runtime_error("Illegal line detected!");
     }
 
+    // check the # of vals and clauses
     if(detect_head_line){
-        if(std::stoi(num_val)<all_val.size())// real #val must <= num_val
-            throw std::runtime_error("Number of variables not match the header line!");
-        if(std::stoi(num_clause)!=count_clause)
-            throw std::runtime_error("Number of clauses not match the header line!");
+        if(std::stoi(num_val)<count_val)// header line must give a #variable no smaller than received
+            throw std::runtime_error("Number of variables does not match the header line!");
+        if(std::stoi(num_clause)!=count_clause)// header line must give exact # clause
+            throw std::runtime_error("Number of clauses does not match the header line!");
     }
+    else
+        cnf_form->setNum(count_val, count_clause);
 
-    if(count_clause==0||all_val.size()==0)
-        throw std::runtime_error("Empty cnf form!");
+    // check if the cnf expression is empty
+    if(count_clause==0||count_val==0)
+        throw std::runtime_error("Empty cnf expression!");
 }
 int main(int argc, char* args[]){
-    //assert(argc == 2);
+    // only accept one input once
     if(argc!=2){
         std::cerr << "Usage: ./" << args[0] << " <cnf_file_path>" << std::endl;
         return 1;
     }
+    // parse the input .cnf file
     std::string cnf_path = args[1];
     auto input = read_file(cnf_path);
-    // std::cout << input << '\n';
     CNF* cnf_form = new CNF();
     try{
         getCNF(cnf_form, input);
@@ -141,10 +169,7 @@ int main(int argc, char* args[]){
         std::cout << e.what() << std::endl;
         return 1;
     }
-    //cnf_form->printClause();
-    //std::cout<<(BCP(1, 0, *cnf_form) ? "true" : "false")<<std::endl;
-    //std::cout<<(BCP(2, 1, *cnf_form) ? "true" : "false")<<std::endl;
-    //std::cout<<(BCP(3, 1, *cnf_form) ? "true" : "false")<<std::endl;
+    // DPLL and output results
     bool sat = DPLL(*cnf_form);
     std::cout << (sat ? "SAT" : "UNSAT") << std::endl;
     if(sat)
