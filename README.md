@@ -2,7 +2,7 @@
 # A SAT solver based on naive DPLL algorithm
 
 ## Compile
-in powershell/bash. with MinGW GCC/G++ Compiler
+in powershell/bash with MinGW GCC/G++ Compiler
 
 ```mkdir build```  
 ```cd build```  
@@ -19,7 +19,7 @@ then the output file ```main.exe``` will be written in ```./build/```
 ### input 
 ```<cnf_file_path>``` *path of a DIMACS format CNF file*
 
-- the header line ```p cnf <variables> <clauses>``` is optional, actual variables and clauses must match the number of varaibles and clauses declared in the header line
+- the header line ```p cnf <variables> <clauses>``` is optional, actual variables and clauses must match the number of variables and clauses declared in the header line
 - comment line is optional, any line like ```c <string>``` is considered
 - only one input .cnf file at a time
 - any other illegeal behaviour will throw an error ( including mismatch of variables/clauses, illegal comment/header line, empty cnf input )
