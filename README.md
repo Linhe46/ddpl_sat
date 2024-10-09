@@ -1,6 +1,17 @@
 # ddpl_sat
 # A SAT solver based on naive DPLL algorithm
-
+## Structure  
+```plaintext
+ddpl_sat  
+├── src/
+│    ├── bcp.cpp
+│    ├── cnf.h
+│    ├── cnf.cpp
+│    ├── dpll.cpp
+│    └── read_file.cpp
+├── CMakeLists.txt
+└── README.md  
+```
 ## Compile
 in powershell/bash with MinGW GCC/G++ Compiler
 
